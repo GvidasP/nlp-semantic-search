@@ -1,3 +1,4 @@
+import os
 import tensorflow_hub as hub
 import numpy as np
 import pandas as pd
@@ -9,7 +10,7 @@ model = hub.load(module_url)
 
 print(f'module {module_url} loaded')
 
-df_articles = pd.read_csv(r'C:\Users\gvida\Desktop\studies\naturalios_kalbos_apdorojimas\1uzduotis\app\flask-app\df_articles.csv')
+df_articles = pd.read_csv(os.path.join(os.path.dirname(os.path.realpath(__file__)), 'df_articles.csv'))
 
 
 def cosine(u, v):
