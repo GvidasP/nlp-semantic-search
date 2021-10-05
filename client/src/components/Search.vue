@@ -14,7 +14,7 @@
         role="status"
         aria-hidden="true"
       ></span>
-      Kraunama...
+      Loading...
     </button>
     <button
       v-else
@@ -22,7 +22,7 @@
       class="btn btn-primary"
       v-on:click="handleSearch"
     >
-      Ieškoti
+      Search
     </button>
   </div>
   <div class="alert alert-danger" role="alert" v-if="errors.length">
