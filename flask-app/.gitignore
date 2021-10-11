@@ -26,3 +26,5 @@ htmlcov/
 *,cover
 
 data/
+data_wsj/
+universal-sentence-encoder/
