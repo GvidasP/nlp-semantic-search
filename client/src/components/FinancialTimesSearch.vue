@@ -1,5 +1,8 @@
 <template>
-  <div class="mx-auto my-5 w-50 input-group">
+  <p class="text-center text-dark mt-5">
+    Paieška pagal frazę Financial Times portale
+  </p>
+  <div class="mx-auto mb-5 w-50 input-group">
     <input
       type="text"
       class="form-control"
@@ -42,6 +45,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th scope="col" class="col-sm-1">Index</th>
         <th scope="col" class="col-sm-1">Relevance</th>
         <th scope="col" class="col-sm-1">Tag</th>
         <th scope="col" class="col-sm-2">Headline</th>
@@ -50,7 +54,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="article in articles" :key="article.tag">
+      <tr v-for="(article, index) in articles" :key="index">
+        <td>{{ index }}</td>
         <td>{{ article.relevance }}</td>
         <th scope="row">{{ article.tag }}</th>
         <td>{{ article.headline }}</td>
@@ -111,6 +116,7 @@ export default defineComponent({
           })
           .then((res) => {
             this.articles = res.data;
+            console.log(res.data);
           })
           .catch((err) => console.log(err))
           .finally(() => (this.loading = false));
